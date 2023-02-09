@@ -96,13 +96,16 @@ public class CelestialBody {
 	public double calcDistance(CelestialBody b) {
 		double xDiff = this.myXPos - b.myXPos;
 		double yDiff = this.myYPos - b.myYPos;
-		double rSquared = math.pow(xDiff, 2) + Math.pow(yDiff, 2)
+		double rSquared = Math.pow(xDiff, 2) + Math.pow(yDiff, 2);
 		return Math.sqrt(rSquared);
 	}
 
 	public double calcForceExertedBy(CelestialBody b) {
-		// TODO: complete method
-		return 0.0;
+		double gravTimesMasses = (6.67*1e-11) * (this.myMass * b.myMass);
+		double distSquared = Math.pow(calcDistance(b), 2);
+		double force = gravTimesMasses / distSquared;
+		
+		return force;
 	}
 
 	public double calcForceExertedByX(CelestialBody b) {
