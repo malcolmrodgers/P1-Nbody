@@ -109,12 +109,21 @@ public class CelestialBody {
 	}
 
 	public double calcForceExertedByX(CelestialBody b) {
-		// TODO: complete method
-		return 0.0;
+		double exertedForce = calcForceExertedBy(b);
+		double xDiffTimesForce = (b.myXPos - this.myXPos) * exertedForce;
+		double dist = calcDistance(b);
+		double forceX = xDiffTimesForce / dist;
+
+		return forceX;
 	}
+
 	public double calcForceExertedByY(CelestialBody b) {
-		// TODO: complete method
-		return 0.0;
+		double exertedForce = calcForceExertedBy(b);
+		double yDiffTimesForce = (b.myYPos - this.myYPos) * exertedForce;
+		double dist = calcDistance(b);
+		double forceY = yDiffTimesForce / dist;
+
+		return forceY;
 	}
 
 	public double calcNetForceExertedByX(CelestialBody[] bodies) {
