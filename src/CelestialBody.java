@@ -7,7 +7,7 @@
  * @author ola
  *
  * If you add code here, add yourself as @author below
- *
+ *@author Malcolm Rodgers
  *
  */
 public class CelestialBody {
@@ -77,7 +77,6 @@ public class CelestialBody {
 	 * @return
 	 */
 	public double getMass() {
-
 		return myMass;
 	}
 
@@ -98,6 +97,7 @@ public class CelestialBody {
 		double xDiff = this.myXPos - b.myXPos;
 		double yDiff = this.myYPos - b.myYPos;
 		double rSquared = Math.pow(xDiff, 2) + Math.pow(yDiff, 2);
+
 		return Math.sqrt(rSquared);
 	}
 
@@ -110,21 +110,11 @@ public class CelestialBody {
 	}
 
 	public double calcForceExertedByX(CelestialBody b) {
-		double exertedForce = calcForceExertedBy(b);
-		double xDiffTimesForce = (b.myXPos - this.myXPos) * exertedForce;
-		double dist = calcDistance(b);
-		double forceX = xDiffTimesForce / dist;
-
-		return forceX;
+		return calcForceExertedBy(b) * (b.myXPos - myXPos) / calcDistance(b);
 	}
 
 	public double calcForceExertedByY(CelestialBody b) {
-		double exertedForce = calcForceExertedBy(b);
-		double yDiffTimesForce = (b.myYPos - this.myYPos) * exertedForce;
-		double dist = calcDistance(b);
-		double forceY = yDiffTimesForce / dist;
-
-		return forceY;
+		return calcForceExertedBy(b) * (b.myYPos - myYPos) / calcDistance(b);
 	}
 
 	public double calcNetForceExertedByX(CelestialBody[] bodies) {
