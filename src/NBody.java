@@ -21,12 +21,10 @@ public class NBody {
 	
 		// TODO: read values at beginning of file to
 		// find the radius
-
-		double rad = 0.0;
-		
+		int numBodies = s.nextInt();
+		String line = s.nextLine();
+		double rad = s.nextDouble();
 		s.close();
-		
-
 		return rad;
 	}
 	
@@ -43,13 +41,16 @@ public class NBody {
 			
 		// TODO: read # bodies, store in nb
 
-		int nb = 0;          // # bodies to be read
+		int nb = s.nextInt();          // # bodies to be read
 
 		// TODO: Create array that can store nb CelestialBodies
+		CelestialBody[] bodyArray = new CelestialBody[nb];
 		// TODO: read and ignore radius
+		double radius = s.nextDouble();
 
 		for(int k=0; k < nb; k++) {
-
+			s.nextLine();
+			CelestialBody body = new CelestialBody(s.nextDouble(), s.nextDouble(), s.nextDouble(), s.nextDouble(), s.nextDouble(), s.next());0``	
 			// TODO: read data for each body
 			// TODO: construct new body object and add to array
 
